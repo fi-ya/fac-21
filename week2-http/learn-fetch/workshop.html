@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Fetch & Promises</title>
+  </head>
+  <body>
+    <h1>Open the console</h1>
+    <script>
+//Task 1 - get user github object
+   const getUser = (user) =>
+    fetch(`https://api.github.com/users/${user}`)
+      .then((response) => response.json());
+
+    getUser('oliverjam')
+      .then((user) => console.log(user))
+      .catch((error) => console.log(error));
+
+      
+//Task 2
+
+      const getRepos = (user) =>
+        fetch(user.repos_url).then((response) => response.json());
+        
+      getUser("oliverjam")
+        .then(getRepos)
+        .then(console.log)
+        .catch(console.error);
+
+  //Task 3
+
+  const safiaPromise = getUser('fi-ya').then(getRepos);
+  const craigPromise = getUser('tiarama').then(getRepos);
+
+  Promise.all([safiaPromise ,craigPromise])
+    .then(console.log)
+    .catch(console.error);
+
+    </script>
+  </body>
+</html>

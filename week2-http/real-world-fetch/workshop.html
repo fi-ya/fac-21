@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real world fetch</title>
+  </head>
+  <body>
+
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" />
+      <label for="email">Email</label>
+      <input type="email" id="email" />
+      <button type="submit" id="form-btn">Log in</button>
+    </form>
+
+  
+
+    <script>
+
+    //Challenge 1 - HTTP ERRORS
+      // fetch("https://echo.oliverjam.workers.dev/status/404")
+      // .then(console.log)
+      // .catch(console.error);
+
+    //Challenge 2- HTTP ERRORS
+    // fetch("https://echo.oliverjam.workers.dev/status/404")
+    //   .then((response) => {
+    //     if (!response.ok){
+    //       throw new Error(response.status);
+    //     } 
+    //     console.log(response);
+    //   })
+    //   .catch(console.error);
+
+    //Challenge 3- SUBMITTING DATA
+      // fetch("https://echo.oliverjam.workers.dev/json", {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type' : 'application/json'
+      //   },
+      //   body : JSON.stringify({
+      //     name : 'Safia',
+      //     job : 'Optometrist'
+      //   })
+      // }).then((response) => console.log(response.json()))
+      //   .catch(console.error);
+
+      //Attempt2 - like oli
+
+      // const myData = {name : 'Safia', job : 'Optometrist'}
+
+      // fetch("https://echo.oliverjam.workers.dev/json", {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type' : 'application/json'
+      //   },
+      //   body : JSON.stringify({ myData})
+      // }).then((response) => {
+      //   if (!response.ok) throw new Error(response.status);  
+      //   return response.json()
+      //     })
+      //     .then(console.log)
+      //     .catch(console.error);
+
+    //Challenge 4- querySelector
+    
+    // const myFrom = document.querySelector("form");
+
+    // myFrom.addEventListener("submit", event => {
+    //   event.preventDefault();
+
+    //   const name = document.querySelector("#name").value;
+    //   const email = document.querySelector("#email").value;
+
+    //   const data = { name, email };
+
+    //   fetch("https://echo.oliverjam.workers.dev/json" , {
+    //     method : 'POST',
+    //     headers: {'content-type' : 'application/json'} ,
+    //     body : JSON.stringify(data)
+    //   }) 
+    //     .then(response => {
+    //       if (!response.ok) throw new Error(response.status) 
+    //       return response.json();
+    //     })
+    //     .then(console.log)
+    //     .catch(console.error);
+
+    // });
+
+    //Challenge 5- new FormData()
+    
+    const myFrom = document.querySelector("form");
+
+    myFrom.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const formData = new FormData(myFrom);
+    const data = Object.fromEntries(formData)
+
+    fetch("https://echo.oliverjam.workers.dev/json" , {
+      method : 'POST',
+      headers: {'content-type' : 'application/json'} ,
+      body : JSON.stringify(data)
+    }) 
+      .then(response => {
+        if (!response.ok) throw new Error(response.status) 
+        return response.json();
+      })
+        .then(console.log)
+        .catch(console.error);
+    
+  });
+
+
+    //Workshop- Pokémon API
+
+
+
+    </script>
+  </body>
+</html>

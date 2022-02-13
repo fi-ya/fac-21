@@ -1,0 +1,116 @@
+<!-- tells the browser that this file is actually HTML & what version of the HTML syntax it’s using -->
+<!-- This tells the browser that this is a modern HTML5 document and should always appear at the top of the file. -->
+<!DOCTYPE html>
+<!-- a root element = contains everything else in the HTML document—there should be nothing outside this except the doctype. -->
+<!-- set the language once on the root element:tell the browser what language the page content is in -->
+<!-- helps your page appear in language-specific search results, allows browser translation tools to offer translation for users with a different language set, and sets the correct voice/accent for screenreaders -->
+<html lang="en">
+  <!-- <head> contains stuff that should be included in the document but won’t show up on the page. -->
+  <head>
+    <!-- <meta> tag. This is a general purpose tag for describing information about the page. -->
+    <!-- utf-8- specify how we want this page to render. -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- viewport meta tag is used to tell mobile browsers that your page is mobile-optimised. -->
+    <!-- this viewport meta tag to opt-out of the default zooming behaviour. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- a description of your page and its content -120-150 characters to avoid being cut-off. -->
+    <meta
+      name="description"
+      content="My web page is a playground for me to learn about web concepts"
+    />
+    <!-- <title> element is displayed in the tab in your browser, shown in search results and also read out by screenreaders to identify the page -->
+    <title>Document</title>
+    <!-- <link> tag lets us include other resources in our page.need to specify the type of resource and its URL -->
+    <link rel="stylesheet" href="style.css" />
+    <!--the little icon that appears in the tab next to the site title (and in some other places). This helps users identify your site and can add a nice design touch.  -->
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <!--  <body> element contains everything you want to appear on the page. -->
+  <body>
+    <h1>My web page</h1>
+    <!-- https://oliverjam.es/blog/dom-intro/ -->
+    <form>
+      <input type="text" name="newTodo" required />
+      <button type="submit">Add +</button>
+    </form>
+    <ul></ul>
+
+    <!-- usually a good idea to put JS at the bottom of the <body>. This way all the rest of your content is loaded before you try to run any JS. -->
+    <script>
+      console.log('JavaScript is working!');
+    </script>
+    <!-- src attribute to point to the URL of our JS file: -->
+    <script src="index.js"></script>
+    <script src="index.test.js"></script>
+    <script src="test-helpers.js"></script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My web page</title>
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="My web page is a playground for me to learn about web concepts">
+  </head>
+  <body>
+    <h1>My web page</h1>
+    <script src="script.js"></script>
+  </body>
+</html> -->
+
+
+<!-- Week1 - html forms
+<form
+      id="form"
+      action="https://learn-forms.netlify.com/submit/part3"
+      method="GET"
+    >
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" />
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" />
+
+      <label for="tel">Telephone</label>
+      <input id="tel" name="tel" type="tel" />
+
+      <fieldset>
+        <legend>Preferred contact method</legend>
+
+        <input
+          id="contact-email"
+          type="radio"
+          name="contact"
+          value="email"
+          checked
+        />
+        <label for="contact-email" class="radio">Email</label>
+
+        <input id="contact-tel" type="radio" name="contact" value="telephone" />
+        <label for="contact-tel" class="radio">Telephone</label>
+
+        <input id="contact-post" type="radio" name="contact" value="post" />
+        <label for="contact-post" class="radio">Post</label>
+      </fieldset>
+
+      <label for="message">Message</label>
+      <textarea name="message"></textarea>
+
+      <input id="marketingConsent" name="marketingConsent" type="checkbox" />
+      <label for="marketingConsent" class="checkbox">Just wreck my inbox</label>
+
+      <button type="submit">Submit</button>
+    </form>
+
+
+
+
+
+
+
+-->
